@@ -1,8 +1,11 @@
 'use strict';
-const fs = require("fs");
-const moment = require("moment");
 let struc = {}
 
+const fs = require("fs");
+const moment = require("moment");
+
+struc.modules ={}
+//struc.modules.moment = moment;
 
 struc.vars =
 {
