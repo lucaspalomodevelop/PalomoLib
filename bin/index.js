@@ -5,6 +5,7 @@ const fs = require("fs");
 const moment = require("moment");
 
 struc.modules ={}
+struc.properties ={}
 //struc.modules.moment = moment;
 
 struc.vars =
@@ -38,5 +39,10 @@ struc.read = function(path = struc.vars.properties_path){
     }
 }
 
+struc.save = function(path = struc.vars.properties_path){
+
+    fs.writeFile(path, JSON.stringify(struc.properties), 'utf8', () => {console.log("write success!")});
+
+}
 
 module.exports = struc;
