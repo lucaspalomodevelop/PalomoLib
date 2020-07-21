@@ -3,7 +3,7 @@ const fs = require("fs");
 const moment = require("moment");
 let struc = {}
 
-struc.properties_path = __dirname + "./ServerProperties.json"
+struc.properties_path = __dirname + "/ServerProperties.json"
 
 struc.vars =
 {
