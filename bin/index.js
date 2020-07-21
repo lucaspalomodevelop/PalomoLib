@@ -3,6 +3,7 @@ const fs = require("fs");
 const moment = require("moment");
 let struc = {}
 
+
 struc.vars =
 {
     properties_path: __dirname + "/ServerProperties.json"
@@ -10,9 +11,6 @@ struc.vars =
 
 struc.functions =
 {
-    "PalomoLogger":(massage,state = "error") =>{
-
-    },
     "timestemp": (format = "YYYY_MM_DD : HH:mm:ss") => { return moment().format(format) },
     "expresslogger": (req, res, next) => {
         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
