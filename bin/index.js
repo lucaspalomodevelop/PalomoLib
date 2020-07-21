@@ -24,9 +24,16 @@ struc.functions =
 struc.read = function(path = struc.properties_path){
 
     if (fs.existsSync(path))
+    {
         struc.properties = require(path);
+        return struc;
+    }
     else
+    {
         console.dir(fs.existsSync(path) + " " + path);
+        throw "ERROR - CAN READ PROPERTIES";
+        return undefined;
+    }
 }
 
 

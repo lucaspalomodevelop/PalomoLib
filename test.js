@@ -1,3 +1,2 @@
-var lplib = require("./bin/index");
-lplib.read();
+var lplib = require("./bin/index").read();
 console.table(lplib);
