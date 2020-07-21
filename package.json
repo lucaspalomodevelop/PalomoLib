@@ -1,0 +1,14 @@
+{
+  "name": "palomolib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Palomo.Infrastructure.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucas Palomo",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "moment": "^2.27.0"
+  }
+}
