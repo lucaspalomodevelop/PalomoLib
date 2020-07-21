@@ -12,7 +12,7 @@ struc.vars =
 
 struc.functions =
 {
-    "timestemp": () => { return moment().format("YYYY_MM_DD : HH:mm:ss") },
+    "timestemp": (format = "YYYY_MM_DD : HH:mm:ss") => { return moment().format(format) },
     "expresslogger": (req, res, next) => {
         var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
         let string = `${struc.functions.timestemp()} -> ${ip} <- (${req.method}) ${req.originalUrl}`
