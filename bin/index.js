@@ -3,6 +3,8 @@ let struc = {}
 
 const fs = require("fs");
 const moment = require("moment");
+const dotenv = require('dotenv');
+dotenv.config();
 
 struc.modules ={}
 struc.properties ={}
@@ -26,18 +28,26 @@ struc.functions =
 }
 
 struc.read = function(path = struc.vars.properties_path){
+    let result = struc;
 
     if (fs.existsSync(path))
     {
         struc.properties = require(path);
-        return struc;
+        result = struc;
     }
-    else
+
+
+    if(process.env)
     {
-        console.dir(fs.existsSync(path) + " " + path);
-        throw "ERROR - CAN READ PROPERTIES";
-        return undefined;
+        for (const [key, value] of Object.entries(process.env)) {
+            struc.properties[key] = value;
+          }
+
+        result = struc;
     }
+
+    return result
+
 }
 
 struc.save = function(path = struc.vars.properties_path){
