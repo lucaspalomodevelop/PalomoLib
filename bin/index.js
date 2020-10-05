@@ -12,7 +12,8 @@ struc.properties ={}
 
 struc.vars =
 {
-    properties_path: __dirname + "/ServerProperties.json"
+    properties_path: __dirname + "/ServerProperties.json",
+    allow_save: true
 }
 
 struc.functions =
@@ -39,6 +40,8 @@ struc.read = function(path = struc.vars.properties_path){
 
     if(process.env)
     {
+        this.allow_save = false;
+
         for (const [key, value] of Object.entries(process.env)) {
             struc.properties[key] = value;
           }
@@ -50,8 +53,9 @@ struc.read = function(path = struc.vars.properties_path){
 
 }
 
-struc.save = function(path = struc.vars.properties_path){
+struc.save = function(path = struc.vars.properties_path,allow){
 
+    if(this.allow_save || allow)
     fs.writeFile(path, JSON.stringify(struc.properties), 'utf8', () => {console.log("write success!")});
 
 }
